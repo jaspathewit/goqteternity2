@@ -1,0 +1,166 @@
+/**
+ * Copyright 2009 Jason Hewitt
+ */
+package org.jaspa.eternity2.definition;
+
+import org.jaspa.eternity2.tile.Orientation;
+import org.jaspa.eternity2.tile.Side;
+import org.jaspa.eternity2.tile.Tile;
+import org.jaspa.eternity2.tile.TileIdSet;
+
+/**
+ * @author Jason Class encapsulates an Eternity2 puzzle tile
+ */
+public abstract class TileDef {
+
+	private String name;
+	private Orientation orientation;
+	private TileIdSet tileId;
+
+	private Side top;
+	private Side right;
+	private Side bottom;
+	private Side left;
+
+	/**
+	 * Construct a single tileDefinition with the given name, orientation and
+	 * side
+	 * definitions
+	 * 
+	 * @param name
+	 * @param tileId
+	 * @param top
+	 * @param right
+	 * @param left
+	 * @param Bottom
+	 */
+	public TileDef(String name, TileIdSet tileId, Side top, Side right, Side bottom, Side left) {
+		assert name != null : "Tile name cannot be null";
+		assert tileId != null : "TileId cannot be null";
+		assert top != null : "Side cannot be null";
+		assert right != null : "Side cannot be null";
+		assert bottom != null : "Side cannot be null";
+		assert left != null : "Side cannot be null";
+
+		// all tiles start in North orientation
+		this.name = name;
+		this.tileId = tileId;
+		this.orientation = Orientation.NORTH;
+		this.top = top;
+		this.right = right;
+		this.bottom = bottom;
+		this.left = left;
+	}
+
+	/**
+	 * @return the tileId
+	 */
+	public TileIdSet getTileId() {
+		return tileId;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @return the topKey
+	 */
+	public String getTopKey() {
+		return top.getEdgeKey();
+	}
+
+	/**
+	 * @return the rightKey
+	 */
+	public String getRightKey() {
+		return right.getEdgeKey();
+	}
+
+	/**
+	 * @return the leftKey
+	 */
+	public String getLeftKey() {
+		return left.getEdgeKey();
+	}
+
+	/**
+	 * @return the bottomKey
+	 */
+	public String getBottomKey() {
+		return bottom.getEdgeKey();
+	}
+
+	/**
+	 * @return the top
+	 */
+	public Side getTop() {
+		return top;
+	}
+
+	/**
+	 * @return the right
+	 */
+	public Side getRight() {
+		return right;
+	}
+
+	/**
+	 * @return the bottom
+	 */
+	public Side getBottom() {
+		return bottom;
+	}
+
+	/**
+	 * @return the left
+	 */
+	public Side getLeft() {
+		return left;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(name + "\n");
+		sb.append(String.format("%0$-10s,", top.getBackground()));
+		sb.append(String.format("%0$-10s,", top.getForeground()));
+		sb.append(String.format("%0$-10s\n", top.getPattern()));
+		sb.append(String.format("%0$-10s,", right.getBackground()));
+		sb.append(String.format("%0$-10s,", right.getForeground()));
+		sb.append(String.format("%0$-10s\n", right.getPattern()));
+		sb.append(String.format("%0$-10s,", bottom.getBackground()));
+		sb.append(String.format("%0$-10s,", bottom.getForeground()));
+		sb.append(String.format("%0$-10s\n", bottom.getPattern()));
+		sb.append(String.format("%0$-10s,", left.getBackground()));
+		sb.append(String.format("%0$-10s,", left.getForeground()));
+		sb.append(String.format("%0$-10s\n", left.getPattern()));
+		return sb.toString();
+	}
+
+	/**
+	 * @param orientation
+	 *            the orientation to set
+	 */
+	protected void setOrientation(Orientation orientation) {
+		assert orientation != null : "Orientation cannot be null";
+		this.orientation = orientation;
+	}
+
+	/**
+	 * @return the orientation
+	 */
+	public Orientation getOrientation() {
+		return orientation;
+	}
+
+	abstract public Tile createTile();
+}
