@@ -32,7 +32,7 @@ func NewSurface() *Surface {
 }
 
 // FillFromTileSet fills the surface with tiles randomly from the set of possible tiles.
-// Its not entierly random as the only corner, edge and middle tiles are place where 
+// Its not entierly random as the only corner, edge and middle tiles are place where
 // apropriate.
 func (surface *Surface) FillFromTileSet() {
 

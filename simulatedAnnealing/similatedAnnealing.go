@@ -2,13 +2,14 @@
 package simulatedAnnealing
 
 import (
-	"bitbucket.com/jaspathewit/eternity2/model"
-	"bitbucket.com/jaspathewit/eternity2/option"
 	"fmt"
-	log "github.com/cihub/seelog"
 	"math"
 	"math/rand"
 	"time"
+
+	"bitbucket.com/jaspathewit/eternity2/model"
+	"bitbucket.com/jaspathewit/eternity2/option"
+	log "github.com/cihub/seelog"
 )
 
 //// Do the actual work
@@ -31,7 +32,6 @@ import (
 //
 //	return err
 //}
-
 
 func Process(pmodel *model.Model) error {
 	var err error

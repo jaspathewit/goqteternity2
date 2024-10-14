@@ -44,7 +44,7 @@ var sideToDefMap map[byte]string
 // initSide initilizes the side data structures
 func initSide() {
 	if defToSideMap == nil || sideToDefMap == nil {
-		
+
 		// Define the conveniance 000000
 		EDGE_SIDE_DEF = SHAPE_EDGE + COLOR_EDGE + COLOR_EDGE
 

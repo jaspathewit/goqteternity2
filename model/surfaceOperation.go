@@ -1,12 +1,10 @@
 // Operations performed on a surface of Eternity tiles.
 package model
 
-import (
 // "errors"
 // "fmt"
 // "os"
 // "strconv"
-)
 
 // SetTile sets the given tile pointer at the given row and col in the surface.
 // Updates the Locations to reflect the change

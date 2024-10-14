@@ -2,9 +2,10 @@
 package main
 
 import (
-	"gopkg.in/qml.v1"
 	"fmt"
 	"os"
+
+	"gopkg.in/qml.v1"
 
 	log "github.com/cihub/seelog"
 )

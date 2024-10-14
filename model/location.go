@@ -1,8 +1,6 @@
 // Single Eternity tile.
 package model
 
-import ()
-
 // the location of a tile, basically the coordinates
 type Location struct {
 	Row    int

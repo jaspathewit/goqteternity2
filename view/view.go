@@ -2,13 +2,14 @@
 package view
 
 import (
+	"fmt"
+	"image"
+	"image/png"
+	"os"
+
 	"bitbucket.com/jaspathewit/eternity2/model"
 	"bitbucket.com/jaspathewit/mvvm"
 	log "github.com/cihub/seelog"
-	"image"
-	"image/png"
-	"fmt"
-	"os"
 )
 
 // A struct containing the ViewData
@@ -37,9 +38,9 @@ var imageCache = make(map[string]image.Image)
 // HandleSurfaceUpdate the handler to handle when the surface is updated
 func HandleSurfaceUpdate(viewModel *mvvm.ViewModel, data interface{}) {
 	log.Debugf("HandleMessageUpdate")
-	
+
 	surface := data.(*model.Surface)
-	
+
 	// loop through the cells of the grid
 	for row := 1; row < 17; row++ {
 		for col := 1; col < 17; col++ {
@@ -53,7 +54,7 @@ func HandleSurfaceUpdate(viewModel *mvvm.ViewModel, data interface{}) {
 
 			// create the string that identifies the tile source
 			tile := surface.GetTile(row, col)
-			source := fmt.Sprintf("image://png/ui/tiles/Tile-%s%s.png", 
+			source := fmt.Sprintf("image://png/ui/tiles/Tile-%s%s.png",
 				tile.GetNumberAsString(),
 				tile.GetOrientationAsString())
 
@@ -63,15 +64,13 @@ func HandleSurfaceUpdate(viewModel *mvvm.ViewModel, data interface{}) {
 		}
 	}
 }
-	
-	
+
 //	ViewData.Message = message
 //
 //	// tell qml that the view data has changed
 //	qml.Changed(&ViewData, &ViewData.Message)
 //	log.Debugf("UI Updated")
 //}
-
 
 // method called when the button is clicked
 //func (data *Data) ButtonClicked(button qml.Object) {
@@ -84,14 +83,14 @@ func HandleSurfaceUpdate(viewModel *mvvm.ViewModel, data interface{}) {
 func LoadPngImage(source string, width, height int) image.Image {
 	log.Debugf("Loading Image %s", source)
 	result, ok := imageCache[source]
-	
+
 	// check if image was found in the cache
 	if !ok {
 		log.Debugf("Image %s Not Found in cache", source)
 		result = loadPngImageFromFile(source)
 		imageCache[source] = result
 	}
-	
+
 	return result
 }
 
