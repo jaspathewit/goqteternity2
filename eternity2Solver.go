@@ -2,15 +2,7 @@
 package main
 
 import (
-	"bitbucket.com/jaspathewit/eternity2/event"
-	"bitbucket.com/jaspathewit/eternity2/model"
-	"bitbucket.com/jaspathewit/eternity2/option"
-	"bitbucket.com/jaspathewit/eternity2/simulatedAnnealing"
-	"bitbucket.com/jaspathewit/eternity2/view"
-	"bitbucket.com/jaspathewit/mvvm"
 	"gopkg.in/qml.v1"
-
-	// "bitbucket.com/jaspathewit/eternity2/solver"
 	"fmt"
 	"os"
 

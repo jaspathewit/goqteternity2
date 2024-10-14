@@ -1,0 +1,4 @@
+github.com/cihub/seelog v0.0.0-20170130134532-f561c5e57575 h1:kHaBemcxl8o/pQ5VM1c8PVE1PubbNx3mjUr09OqWGCs=
+github.com/cihub/seelog v0.0.0-20170130134532-f561c5e57575/go.mod h1:9d6lWj8KzO/fd/NrVaLscBKmPigpZpn5YawRPw+e3Yo=
+gopkg.in/qml.v1 v1.0.0-20150209141031-2ee7e5ff7370 h1:FV616PLYIESdpgfGLJZXjQ4ihRj68z231nBYyKSNHqk=
+gopkg.in/qml.v1 v1.0.0-20150209141031-2ee7e5ff7370/go.mod h1:OdkD6gPfMkzyxyKjEXsYpdzQ+YKBUchBFr7ygOz7pB8=
